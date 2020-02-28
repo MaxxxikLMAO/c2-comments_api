@@ -10,9 +10,9 @@ import key from '../key';
 })
 export class LoginComponent implements OnInit {
 
-private url ="http://85.160.64.233:3000/session/login";
-private email = "";
-private password = "";
+    private adress ="http://85.160.64.233:3000/session/login";
+    private email = "";
+    private password = "";
 
 
   constructor (private http: HttpClient, private router: Router){
@@ -20,7 +20,7 @@ private password = "";
   }
 
   clickedButton() {
-    this.http.post(this.url, {email: this.email, password: this.password }).subscribe(
+    this.http.post(this.adress, {email: this.email, password: this.password }).subscribe(
       (data: any) => {
         key.access = data.access_token;
         this.router.navigate(["/user"])
